@@ -19,18 +19,25 @@ int _main_(void)
 {
 
 	// TODO: Write your function
-	char * str;
-	str = (char *) malloc(MAXSIZE);
-	bzero(str,MAXSIZE)
+	char *str;
+	str = (char *)malloc(MAXSIZE);
+	bzero(str,MAXSIZE);
 	int i = 0;
 	char c;
 	do{
 	    c = kgetc(0);
 	    kputc(c);
-	    str[i] = c;
-	    i = i+1;
+	//    kprintf("\r\nTHE CHAR WE GOT %c",c);
+	    if(c == 97 || c == 101 || c == 105 || c == 111 || c == 117){	
+	    	str[i] = c;
+	     i = i+1;
+	    }
+	    else if ((c >= 48 && c<=56) && c%2 ==0){
+	        str[i] =c;
+	     i = i+1;
+	    }
 	}while(c != '\n');
-	kprintf("%s\r\n",str);		
+	kprintf(" \r\n%s",str);		
 	
 	return 0;	// Main ends with return of zero
 }
